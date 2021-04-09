@@ -1,20 +1,35 @@
-<h1>Sign Up</h1>
+<div class="login">
 
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @user.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div>
+    <h1>Tasker!</h1>
+  </div>
+
+  <%= form_for sessions_path do |f| %>
+  <p class='log-lnk'><%= f.submit 'Login', class: 'btn btn-log' %></p>
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
 
-  <p class="button"><%= f.submit %></p>
-<% end %>
+  <% end %>
+
+  <%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% for message in @user.errors.full_messages %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <p class='log-lnk'><%= f.submit 'Sign up', class: 'btn btn-log' %></p>
+    <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </p>
+
+  <% end %>
+</div>

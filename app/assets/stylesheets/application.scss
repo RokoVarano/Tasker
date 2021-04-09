@@ -1,1 +1,36 @@
 @import 'bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+// colors
+$main: #3778c2;
+$second: #5fb523;
+$text-color: #433b54;
+
+$font: 'Open Sans', sans-serif;
+
+:root {
+  font-family: $font;
+}
+
+.login {
+  background: $main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  color: white;
+
+  .log-lnk {
+    display: flex;
+    justify-content: center;
+  }
+
+  .btn-log {
+    background-color: white;
+    color: $main;
+    font-size: 4vh;
+    font-weight: bolder;
+  }
+}
