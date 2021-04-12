@@ -13,6 +13,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def create_session
+    
+    user_params = params.require(:user).permit(:name)
+    user = User.find_by(user_params)
+    if !user.nil?
+      session[:user_id] = user[:id]
+      redirect_to user, :notice => "Logged in!"
+    else
+      flash.now.alert = "User does not exist"
+      render "new"
+    end
+  end
+
+  def destroy_session
+    session[:user_id] = nil
+    redirect_to root_url, :notice => "Logged out!"
+  end
+
   def show; end
 end
 

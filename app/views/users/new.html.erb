@@ -4,12 +4,13 @@
     <h1>Tasker!</h1>
   </div>
 
-  <%= form_for sessions_path do |f| %>
-  <p class='log-lnk'><%= f.submit 'Login', class: 'btn btn-log' %></p>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
+  <%= form_for @user, :url => { :action => :create_session } do |f| %>
+    <p class='log-lnk'><%= f.submit 'Login', class: 'btn btn-log'%></p>
+
+    <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </p>
 
   <% end %>
 
