@@ -1,0 +1,10 @@
+<h1>TASKS</h1>
+
+<%= button_to 'New Task', new_task_path, method: :get%>
+
+<% @tasks.each do |task| %>
+  <p><%= task[:name]%></p>
+  <p><%= task.user[:name]%></p>
+  <p><%= task[:points]%></p>
+
+<% end %>
