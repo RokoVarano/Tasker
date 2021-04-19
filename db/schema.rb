@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_12_214713) do
+ActiveRecord::Schema.define(version: 2021_04_19_163208) do
+
+  create_table "group_tasks", force: :cascade do |t|
+    t.integer "group_id", null: false
+    t.integer "task_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_group_tasks_on_group_id"
+    t.index ["task_id"], name: "index_group_tasks_on_task_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_groups_on_user_id"
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.string "name"
@@ -27,5 +44,8 @@ ActiveRecord::Schema.define(version: 2021_04_12_214713) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "group_tasks", "groups"
+  add_foreign_key "group_tasks", "tasks"
+  add_foreign_key "groups", "users"
   add_foreign_key "tasks", "users"
 end

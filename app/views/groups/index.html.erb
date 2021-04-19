@@ -1,0 +1,10 @@
+<h1>GROUPS</h1>
+
+<%= button_to 'New Group', new_group_path, method: :get%>
+
+<% @groups.each do |group| %>
+  <p><%= group[:name]%></p>
+  <p><%= group.user[:name]%></p>
+  <p><%= group[:points]%></p>
+
+<% end %>
