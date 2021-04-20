@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   def new
+    redirect_to current_user if current_user
+
     @user = User.new
   end
   
