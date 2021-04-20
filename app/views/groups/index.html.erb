@@ -3,8 +3,5 @@
 <%= button_to 'New Group', new_group_path, method: :get%>
 
 <% @groups.each do |group| %>
-  <p><%= group[:name]%></p>
-  <p><%= group.user[:name]%></p>
-  <p><%= group[:points]%></p>
-
+  <%= group_link(group)%> 
 <% end %>
