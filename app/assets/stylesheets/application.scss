@@ -4,10 +4,15 @@
 
 // colors
 $main: #3778c2;
+$link: rgb(64, 215, 235);
 $second: #5fb523;
 $text-color: #433b54;
 
 $font: 'Open Sans', sans-serif;
+
+p {
+  margin: 0;
+}
 
 :root {
   font-family: $font;
@@ -32,5 +37,27 @@ $font: 'Open Sans', sans-serif;
     color: $main;
     font-size: 4vh;
     font-weight: bolder;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+  background-color: $main;
+  color: white;
+
+  .title {
+    text-transform: uppercase;
+    font-weight: bolder;
+  }
+
+  a {
+    color: white;
+
+    :hover {
+      text-decoration: none;
+      color: $link;
+    }
   }
 }

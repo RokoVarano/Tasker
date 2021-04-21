@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    group_params = params.require(:group).permit(:name)
+    group_params = params.require(:group).permit(:name, :image)
     @group = current_user.groups.create(group_params)
     puts "CURRENT USER: #{current_user[:name]}, ID => #{current_user[:id]}"
     puts "Group: NAME => #{@group[:name]}, USER => #{@group[:user_id]}"

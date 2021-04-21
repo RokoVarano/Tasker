@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   post "log_out" => "users#destroy_session", :as => "log_out"
 
   get "sign_up" => "users#new", :as => "sign_up"
-  root :to => "users#new"
   resources :users
   resources :tasks
 
   resources :groups
+
+  root "users#new"
 
 end
