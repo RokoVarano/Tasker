@@ -1,4 +1,13 @@
-<h1>USER: <%= @user[:name] %></h1>
+<div class='item-container'>
+  <%= user_avatar %>
+  <h3><%= @user[:name] %></h3>
+  <div></div>
+</div>
+
+<%= simple_form_for @user, method: :put do |f| %>
+  <%= f.file_field :image %>
+  <%= f.button :submit, 'Change picture' %>
+<% end %>
 
 <h3><%= link_to "All my Tasks", tasks_path %></h3>
 

@@ -11,4 +11,17 @@ module ApplicationHelper
     return 'New Group' if current_page?(new_group_path)
     return 'Group' if current_page?(group_path)
   end
+
+  def task_count(tasks)
+    html_string = ""
+
+    if current_page?(tasks_path)
+      html_string << "<div class='task-count'>"
+      html_string << "<p>Total Tasks</p>"
+      html_string << "<p>#{tasks.length}</p>"
+      html_string << "</div>"
+    end
+
+    html_string.html_safe
+  end
 end

@@ -36,5 +36,14 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by_id(params[:id])
   end
-end
 
+  def update
+    user_params = params.require(:user).permit(:image)
+
+    @user = current_user
+    
+    @user.image.attach(user_params[:image])
+
+    redirect_to @user
+  end
+end

@@ -61,3 +61,32 @@ p {
     }
   }
 }
+
+.info-container {
+  padding: 2vh;
+}
+
+.item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vh;
+  border: $main solid 1px;
+  margin-bottom: 1vh;
+
+  .avatar {
+    height: 12vh;
+    width: 12vh;
+    background-position: center;
+    background-size: cover;
+    padding-top: 5vh;
+  }
+}
+
+.task-count {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  padding: 8px 16px;
+}
