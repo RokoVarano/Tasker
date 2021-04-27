@@ -1,5 +1,11 @@
-<%= button_to 'New Task', new_task_path, method: :get%>
 
-<% @tasks.each do |task| %>
-  <%= task_link(task)%>
-<% end %>
+<div class='item-container'>
+  <%= button_to 'New Task', new_task_path, method: :get%>
+</div>
+
+  <% @tasks.each do |task| %>
+    <div class='item-container'>
+      <%= avatar(task.groups[0]) %>
+      <%= task_link(task)%>
+    </div>
+  <% end %>

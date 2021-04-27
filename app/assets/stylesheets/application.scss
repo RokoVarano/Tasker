@@ -7,15 +7,23 @@ $main: #3778c2;
 $link: rgb(64, 215, 235);
 $second: #5fb523;
 $text-color: #433b54;
-
+$p-color: #433b5488;
+$backgray: rgb(214, 214, 214);
+$transparent: rgba(0, 0, 0, 0);
 $font: 'Open Sans', sans-serif;
 
 p {
   margin: 0;
 }
 
+body {
+  background-color: $transparent;
+}
+
 :root {
   font-family: $font;
+  background-color: $backgray;
+  color: $text-color;
 }
 
 .login {
@@ -50,6 +58,7 @@ p {
   .title {
     text-transform: uppercase;
     font-weight: bolder;
+    text-align: center;
   }
 
   a {
@@ -63,7 +72,7 @@ p {
 }
 
 .info-container {
-  padding: 2vh;
+  margin: 2vh;
 }
 
 .item-container {
@@ -71,8 +80,8 @@ p {
   justify-content: space-between;
   align-items: center;
   padding: 1vh;
-  border: $main solid 1px;
   margin-bottom: 1vh;
+  background-color: white;
 
   .avatar {
     height: 12vh;
@@ -89,4 +98,12 @@ p {
   align-items: center;
   height: 10vh;
   padding: 8px 16px;
+  background: white;
+}
+
+.profile-btn {
+  display: inline-block;
+  background: $main;
+  color: white;
+  margin-bottom: 1vh;
 }

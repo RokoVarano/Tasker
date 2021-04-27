@@ -1,0 +1,3 @@
+class GroupTasksController < ApplicationController
+
+end

@@ -5,10 +5,11 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @groups = Group.all
   end
 
   def create
-    task_params = params.require(:task).permit(:name, :points)
+    task_params = params.require(:task).permit(:name, :points, :group)
     @task = current_user.tasks.create(task_params)
     puts "CURRENT USER: #{current_user[:name]}, ID => #{current_user[:id]}"
     puts "Task: NAME => #{@task[:name]}, POINTS => #{@task[:points]}, USER => #{@task[:user_id]}"

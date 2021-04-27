@@ -9,7 +9,7 @@ module ApplicationHelper
     return 'New Task' if current_page?(new_task_path)
     return 'Groups' if current_page?(groups_path)
     return 'New Group' if current_page?(new_group_path)
-    return 'Group' if current_page?(group_path)
+    return @group[:name] if current_page?(group_path)
   end
 
   def task_count(tasks)
@@ -23,5 +23,13 @@ module ApplicationHelper
     end
 
     html_string.html_safe
+  end
+
+  def avatar(item)
+
+    return if item.nil?
+
+    return "<div class='avatar' style='background-image: url(#{url_for(item.image)})'>  </div>".html_safe if item.image.attached?
+
   end
 end

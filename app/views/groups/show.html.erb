@@ -1,12 +1,17 @@
-<h1><%= @group.name%></h1>
+<div class="item-container">
+<%= simple_form_for @group do |f|%>
+  <%= simple_fields_for :task do |n| %>
+    <%= n.input :task_id, collection: Task.all, label_method: :name, value_method: :id, include_blank: false %>
+  <% end %>
 
-<h3><%= @group.tasks.length %></h3>
-
-<%= button_to 'New Task', new_task_path, method: :get%>
+  <%= f.submit 'Add a Task' %>
+<% end %>
+</div>
 
 <% @group.tasks.each do |task| %>
-  <p><%= task[:name]%></p>
-  <p><%= task.user[:name]%></p>
-  <p><%= task[:points]%></p>
-
+  <div class="item-container">
+    <p><%= task[:name]%></p>
+    <p><%= task.user[:name]%></p>
+    <p><%= task[:points]%></p>
+  </div>
 <% end %>

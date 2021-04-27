@@ -11,8 +11,6 @@ class GroupsController < ApplicationController
   def create
     group_params = params.require(:group).permit(:name, :image)
     @group = current_user.groups.create(group_params)
-    puts "CURRENT USER: #{current_user[:name]}, ID => #{current_user[:id]}"
-    puts "Group: NAME => #{@group[:name]}, USER => #{@group[:user_id]}"
     if @group.save!
       redirect_to groups_path, :notice => "Created New Group!"
     else
@@ -22,6 +20,19 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @group_task = GroupTask.new
+  end
+
+  def update
+    @group = Group.find(params[:id])
+    task_param = params.require(:task).permit(:task_id)
+    @group_task = @group.group_tasks.create(group_id: @group[:id], task_id: task_param[:task_id])
+    if @group_task.save
+      redirect_to @group 
+    else
+      flash[:alert] = 'The task was not added'
+      redirect_to @group 
+    end
   end
 
 end

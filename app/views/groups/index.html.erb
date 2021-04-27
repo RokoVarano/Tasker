@@ -1,7 +1,7 @@
-<h1>GROUPS</h1>
-
-<%= button_to 'New Group', new_group_path, method: :get%>
+<div class="item-container">
+  <%= button_to 'New Group', new_group_path, method: :get%>
+</div>
 
 <% @groups.each do |group| %>
-  <%= group_link(group)%> 
+    <%= group_link(group)%> 
 <% end %>
