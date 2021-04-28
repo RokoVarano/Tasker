@@ -1,17 +1,21 @@
 <div class="item-container">
 <%= simple_form_for @group do |f|%>
+
   <%= simple_fields_for :task do |n| %>
     <%= n.input :task_id, collection: Task.all, label_method: :name, value_method: :id, include_blank: false %>
   <% end %>
 
-  <%= f.submit 'Add a Task' %>
+  <%= f.submit 'Add a Task', :input_html =>{:class => "profile-btn"} %>
 <% end %>
 </div>
 
 <% @group.tasks.each do |task| %>
   <div class="item-container">
-    <p><%= task[:name]%></p>
-    <p><%= task.user[:name]%></p>
-    <p><%= task[:points]%></p>
+    <div>
+      <p><%= task[:name]%></p>
+      <p>Author: <%= task.user[:name]%></p>
+      <p>Points: <%= task[:points]%></p>
+      <p><%= task[:created_at]%></p>
+    </div>
   </div>
 <% end %>

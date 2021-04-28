@@ -26,6 +26,15 @@ body {
   color: $text-color;
 }
 
+a {
+  color: $text-color;
+
+  :hover {
+    color: $text-color;
+    text-decoration: none;
+  }
+}
+
 .login {
   background: $main;
   display: flex;

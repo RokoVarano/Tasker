@@ -5,7 +5,6 @@
 
   <% @tasks.each do |task| %>
     <div class='item-container'>
-      <%= avatar(task.groups[0]) %>
       <%= task_link(task)%>
     </div>
   <% end %>

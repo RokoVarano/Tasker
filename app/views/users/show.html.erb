@@ -4,10 +4,12 @@
   <div></div>
 </div>
 
+<div class='item-container'>
 <%= simple_form_for @user, method: :put do |f| %>
   <%= f.file_field :image %>
-  <%= f.button :submit, 'Change picture' %>
+  <%= f.button :submit, 'Change picture', class: 'profile-btn' %>
 <% end %>
+</div>
 
 <div class='item-container'><%= link_to "All my Tasks", tasks_path %></div>
 
