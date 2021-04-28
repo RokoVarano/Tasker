@@ -11,6 +11,6 @@
 <% end %>
 </div>
 
-<div class='item-container'><%= link_to "All my Tasks", tasks_path %></div>
-
-<div class='item-container'><%= link_to "All Groups", groups_path %></div>
+<div class='item-container'><%= link_to "My Tasks", {:controller => "tasks", :action => "index", :external => false }%></div>
+<div class='item-container'><%= link_to "External Tasks", {:controller => "tasks", :action => "index", :external => true }%></div>
+<div class='item-container'><%= link_to "All Groups", groups_path%></div>

@@ -80,6 +80,26 @@ a {
   }
 }
 
+.foot {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: white;
+  text-align: center;
+
+  .foot-btn {
+    display: flex;
+    justify-content: center;
+    width: 96vw;
+    background-color: $second;
+    margin: 1vh;
+    color: white;
+    font-weight: bolder;
+  }
+}
+
 .info-container {
   margin: 2vh;
 }
@@ -111,6 +131,13 @@ a {
 }
 
 .profile-btn {
+  display: inline-block;
+  background: $main;
+  color: white;
+  margin-bottom: 1vh;
+}
+
+.new-btn {
   display: inline-block;
   background: $main;
   color: white;

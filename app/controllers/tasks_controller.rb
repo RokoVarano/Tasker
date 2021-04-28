@@ -1,6 +1,16 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.where(user_id: current_user)
+    puts "EXTERNAL: #{params[:external]}"
+
+    external = params[:external]
+
+    if external == 'true'
+      @tasks = Task.where(user_id: current_user).select{|task| task.groups.empty?}
+    else
+      @tasks = Task.where(user_id: current_user)
+    end
+
+    @tasks
   end
 
   def new

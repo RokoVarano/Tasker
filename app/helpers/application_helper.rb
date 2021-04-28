@@ -25,6 +25,15 @@ module ApplicationHelper
     html_string.html_safe
   end
 
+  def footer_display
+    render :partial => 'layouts/foot' unless current_user.nil?
+  end
+
+  def footer_btn
+    return button_to 'New Task', new_task_path, method: :get, class: 'foot-btn' if current_page?(tasks_path)
+    return button_to 'New Group', new_group_path, method: :get, class: 'foot-btn' if current_page?(groups_path)
+  end
+
   def avatar(item)
 
     return if item.nil?
