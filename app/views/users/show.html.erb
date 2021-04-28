@@ -4,9 +4,10 @@
   <div></div>
 </div>
 
+
 <div class='item-container'>
 <%= simple_form_for @user, method: :put do |f| %>
-  <%= f.file_field :image %>
+  <%= f.input :image %>
   <%= f.button :submit, 'Change picture', class: 'profile-btn' %>
 <% end %>
 </div>

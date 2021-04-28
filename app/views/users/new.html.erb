@@ -2,29 +2,20 @@
 
   <div>
     <h1>Tasker!</h1>
+    <% flash.each do |type, msg| %>
+      <p><%= msg %></p>
+    <% end %>
   </div>
 
   <%= form_for @user, :url => { :action => :create_session } do |f| %>
     <p class='log-lnk'><%= f.submit 'Login', class: 'btn btn-log'%></p>
-
     <p>
       <%= f.label :name %><br />
       <%= f.text_field :name %>
     </p>
-
   <% end %>
 
   <%= form_for @user do |f| %>
-    <% if @user.errors.any? %>
-      <div class="error_messages">
-        <h2>Form is invalid</h2>
-        <ul>
-          <% for message in @user.errors.full_messages %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
 
     <p class='log-lnk'><%= f.submit 'Sign up', class: 'btn btn-log' %></p>
     <p>

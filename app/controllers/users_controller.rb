@@ -21,10 +21,11 @@ class UsersController < ApplicationController
     @user = User.find_by(user_params)
     if !@user.nil?
       session[:user_id] = @user[:id]
-      redirect_to @user, :notice => "Logged in!"
+      flash[:notice] = "Logged in!"
+      redirect_to @user
     else
-      flash.now.alert = "User does not exist"
-      render "new"
+      flash[:alert] = "User does not exist"
+      redirect_to ''
     end
   end
 
