@@ -8,8 +8,21 @@ class UsersController < ApplicationController
   def create
     user_params = params.require(:user).permit(:name)
     @user = User.new(user_params)
-    if @user.save
-      redirect_to root_path, :notice => "Signed up!"
+
+    ok = true
+
+    if @user[:name].empty?
+      flash[:alert] = "User can not be empty"
+      ok = false
+    end
+
+    if User.all.any? {|uss| uss[:name] == @user[:name] }
+      flash[:alert] = "User already exists"
+      ok = false
+    end
+
+    if @user.save && ok
+      redirect_to root_path, :notice => "#{@user[:name]} was created!"
     else
       render "new"
     end
