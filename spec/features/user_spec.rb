@@ -1,7 +1,8 @@
+# rubocop:disable Metrics/BlockLength
+
 require 'rails_helper'
 
-RSpec.feature "Users", type: :feature do
-
+RSpec.feature 'Users', type: :feature do
   context 'Create user:' do
     before(:each) do
       visit root_path
@@ -10,9 +11,9 @@ RSpec.feature "Users", type: :feature do
     scenario 'should succeed' do
       within '#create_user' do
         fill_in 'user_name', with: 'Perro'
-      end      
+      end
       click_button 'Sign up'
-      expect(page).to have_content("Perro was created!")
+      expect(page).to have_content('Perro was created!')
     end
 
     scenario 'empty should fail' do
@@ -42,9 +43,9 @@ RSpec.feature "Users", type: :feature do
     scenario 'should succeed' do
       within '#login_user' do
         fill_in 'user_name', with: 'Login'
-      end      
+      end
       click_button 'Login'
-      expect(page).to have_content("Logged in!")
+      expect(page).to have_content('Logged in!')
     end
 
     scenario 'non existant should fail' do
@@ -103,3 +104,5 @@ RSpec.feature "Users", type: :feature do
     end
   end
 end
+
+# rubocop:enable Metrics/BlockLength

@@ -4,11 +4,11 @@ class TasksController < ApplicationController
 
     external = params[:external]
 
-    if external == 'true'
-      @tasks = Task.where(user_id: current_user).select{|task| task.groups.empty?}
-    else
-      @tasks = Task.where(user_id: current_user)
-    end
+    @tasks = if external == 'true'
+               Task.where(user_id: current_user).select { |task| task.groups.empty? }
+             else
+               Task.where(user_id: current_user)
+             end
 
     @tasks
   end
@@ -24,9 +24,9 @@ class TasksController < ApplicationController
     puts "CURRENT USER: #{current_user[:name]}, ID => #{current_user[:id]}"
     puts "Task: NAME => #{@task[:name]}, POINTS => #{@task[:points]}, USER => #{@task[:user_id]}"
     if @task.save!
-      redirect_to tasks_path, :notice => "Created New Task!"
+      redirect_to tasks_path, notice: 'Created New Task!'
     else
-      render "new"
+      render 'new'
     end
   end
 end

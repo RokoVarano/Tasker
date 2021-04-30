@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :group do
-    string { "" }
+    string { '' }
   end
 end
