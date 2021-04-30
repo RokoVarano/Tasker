@@ -4,12 +4,7 @@ module ApplicationHelper
   end
 
   def navbar_title
-    return 'Profile' if current_page?(user_path(current_user))
-    return 'Tasks' if current_page?(tasks_path)
-    return 'New Task' if current_page?(new_task_path)
-    return 'Groups' if current_page?(groups_path)
-    return 'New Group' if current_page?(new_group_path)
-    return @group[:name] if current_page?(group_path)
+    return @title
   end
 
   def task_count(tasks)

@@ -1,7 +1,5 @@
 class TasksController < ApplicationController
   def index
-    puts "EXTERNAL: #{params[:external]}"
-
     external = params[:external]
 
     @tasks = if external == 'true'
@@ -10,12 +8,15 @@ class TasksController < ApplicationController
                Task.where(user_id: current_user)
              end
 
+    @title = 'Tasks'
     @tasks
+
   end
 
   def new
     @task = Task.new
     @groups = Group.all
+    @title = 'New Task'
   end
 
   def create

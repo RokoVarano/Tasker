@@ -1,10 +1,12 @@
 class GroupsController < ApplicationController
   def index
     @groups = Group.all
+    @title = 'Groups'
   end
 
   def new
     @group = Group.new
+    @title = 'New Group'
   end
 
   def create
@@ -20,6 +22,7 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @group_task = GroupTask.new
+    @title = @group[:name]
   end
 
   def update
