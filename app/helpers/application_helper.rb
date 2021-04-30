@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def navbar_title
-    return @title
+    @title
   end
 
   def task_count(tasks)

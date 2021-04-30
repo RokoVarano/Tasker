@@ -10,7 +10,6 @@ class TasksController < ApplicationController
 
     @title = 'Tasks'
     @tasks
-
   end
 
   def new
