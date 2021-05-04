@@ -21,7 +21,7 @@ module ApplicationHelper
   end
 
   def footer_display
-    render partial: 'layouts/foot' unless current_user.nil?
+    render partial: 'layouts/foot' unless current_user.nil? #CAMBIAR ESTO!!!
   end
 
   def footer_btn
@@ -30,10 +30,8 @@ module ApplicationHelper
   end
 
   def avatar(item)
-    return if item.nil?
+    return image_tag('peon.jpg', class: 'avatar') if item.nil? || !item.image.attached?
 
-    return unless item.image.attached?
-
-    "<div class='avatar' style='background-image: url(#{url_for(item.image)})'>  </div>".html_safe
+    image_tag(url_for(item.image), class: 'avatar')
   end
 end

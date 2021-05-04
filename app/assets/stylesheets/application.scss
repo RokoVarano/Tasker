@@ -7,8 +7,9 @@ $main: #3778c2;
 $link: rgb(64, 215, 235);
 $second: #5fb523;
 $text-color: #433b54;
+$text-light: #989da3;
 $p-color: #433b5488;
-$backgray: rgb(214, 214, 214);
+$backgray: #f5f6f8;
 $transparent: rgba(0, 0, 0, 0);
 $font: 'Open Sans', sans-serif;
 
@@ -88,6 +89,7 @@ a {
   background-color: white;
   color: white;
   text-align: center;
+  min-height: 30px;
 
   .foot-btn {
     display: flex;
@@ -108,16 +110,54 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1vh;
+  padding: 2vh;
   margin-bottom: 1vh;
   background-color: white;
+  width: 100%;
+  max-width: 600px;
+}
 
-  .avatar {
-    height: 12vh;
-    width: 12vh;
-    background-position: center;
-    background-size: cover;
-    padding-top: 5vh;
+.avatar {
+  display: block;
+  min-width: 80px;
+  max-width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 2vh;
+}
+
+.task-data {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 80px;
+  justify-content: space-between;
+  color: $text-light;
+
+  .name-points {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $text-light;
+
+    .name {
+      display: flex;
+      align-items: center;
+      height: 60px;
+    }
+
+    .points {
+      display: flex;
+      align-items: center;
+      height: auto;
+      color: $text-color;
+      font-weight: bolder;
+    }
+  }
+
+  .task-date {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
   }
 }
 
