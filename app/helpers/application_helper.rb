@@ -29,8 +29,8 @@ module ApplicationHelper
   end
 
   def footer_btn
-    return button_to 'New Task', new_task_path, method: :get, class: 'foot-btn' if current_page?(tasks_path)
-    return button_to 'New Group', new_group_path, method: :get, class: 'foot-btn' if current_page?(groups_path)
+    return link_to 'New Task', new_task_path, method: :get, class: 'foot-btn' if current_page?(tasks_path)
+    return link_to 'New Group', new_group_path, method: :get, class: 'foot-btn' if current_page?(groups_path)
   end
 
   def avatar(item)

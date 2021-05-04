@@ -89,16 +89,20 @@ a {
   background-color: $second;
   color: white;
   text-align: center;
-  min-height: 40px;
+  min-height: 80px;
 
   .foot-btn {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 96vw;
+    min-height: 70px;
     background-color: $second;
     margin: 1vh;
     color: white;
     font-weight: bolder;
+    border: 1px solid white;
+    font-size: 30px;
   }
 }
 
