@@ -10,12 +10,8 @@
 </div>
 
 <% @group.tasks.each do |task| %>
-  <div class="item-container">
-    <div>
-      <p><%= task[:name]%></p>
-      <p>Author: <%= task.user[:name]%></p>
-      <p>Points: <%= task[:points]%></p>
-      <p><%= task[:created_at]%></p>
-    </div>
+  <div class='item-container'>
+    <%= task_in_group(task)%>
   </div>
 <% end %>
+

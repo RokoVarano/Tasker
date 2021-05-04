@@ -3,9 +3,9 @@ class TasksController < ApplicationController
     external = params[:external]
 
     @tasks = if external == 'true'
-               Task.where(user_id: current_user).select { |task| task.groups.empty? }
+               Task.where(user_id: current_user).select { |task| task.groups.empty? }.order(:created_at)
              else
-               Task.where(user_id: current_user)
+               Task.where(user_id: current_user).order(:created_at)
              end
 
     @title = 'Tasks'

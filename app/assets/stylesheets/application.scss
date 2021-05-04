@@ -86,10 +86,10 @@ a {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: white;
+  background-color: $second;
   color: white;
   text-align: center;
-  min-height: 30px;
+  min-height: 40px;
 
   .foot-btn {
     display: flex;
@@ -115,6 +115,7 @@ a {
   background-color: white;
   width: 100%;
   max-width: 600px;
+  border-radius: 20px;
 }
 
 .avatar {
@@ -163,9 +164,9 @@ a {
 
 .task-count {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  height: 10vh;
+  min-height: 5vh;
   padding: 8px 16px;
   background: white;
 }

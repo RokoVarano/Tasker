@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   def index
-    @groups = Group.all
+    @groups = Group.all.order(:name)
     @title = 'Groups'
   end
 
@@ -12,9 +12,10 @@ class GroupsController < ApplicationController
   def create
     group_params = params.require(:group).permit(:name, :image)
     @group = current_user.groups.create(group_params)
-    if @group.save!
+    if @group.save
       redirect_to groups_path, notice: 'Created New Group!'
     else
+      flash[:alert] = 'A picture must be attached'
       render 'new'
     end
   end

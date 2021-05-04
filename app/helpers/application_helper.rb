@@ -21,7 +21,11 @@ module ApplicationHelper
   end
 
   def footer_display
-    render partial: 'layouts/foot' unless current_user.nil? #CAMBIAR ESTO!!!
+    return if current_user.nil?
+
+    return unless current_page?(tasks_path) || current_page?(groups_path)
+
+    render partial: 'layouts/foot'
   end
 
   def footer_btn
