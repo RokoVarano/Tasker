@@ -7,16 +7,17 @@ RSpec.feature 'Tasks', type: :feature do
     @user = User.new(name: 'MyUser')
     @user.save
 
-    @task_no_group = Task.new(name: 'Task with no group', points: '1', user_id: @user[:id])
+    @task_no_group = @user.tasks.create(name: 'Task with no group', points: '1')
     @task_no_group.save
 
-    @task_with_group = Task.new(name: 'Task_group', points: '2', user_id: @user[:id])
+    @task_with_group = @user.tasks.create(name: 'Task_group', points: '2')
     @task_with_group.save
 
-    @group = Group.new(name: 'Group 1', user_id: @user[:id])
+    file = fixture_file_upload('avatar.png', 'image/png')
+    @group = @user.groups.create(name: 'Group 1', image: file)
     @group.save
 
-    @group_task = GroupTask.create(group_id: @group[:id], task_id: @task_with_group[:id])
+    @group_task = @group.group_tasks.create(group_id: @group[:id], task_id: @task_with_group[:id])
     @group_task.save
 
     visit root_path
@@ -46,19 +47,34 @@ RSpec.feature 'Tasks', type: :feature do
     end
 
     scenario 'task with no group should exist' do
+      expect(page).to have_content(@task_with_group[:name])
       expect(page).to have_content("Points: #{@task_no_group[:points]}")
-      expect(page).to have_content((@task_no_group[:created_at]).to_s)
+      expect(page).to have_content((@task_no_group[:created_at]).strftime('%d of %B, %Y'))
     end
 
     scenario 'task with group should exist' do
       expect(page).to have_content(@task_with_group[:name])
       expect(page).to have_content("Points: #{@task_with_group[:points]}")
-      expect(page).to have_content((@task_with_group[:created_at]).to_s)
+      expect(page).to have_content((@task_with_group[:created_at]).strftime('%d of %B, %Y'))
     end
 
     scenario 'new task button' do
-      click_button 'New Task'
+      click_link 'New Task'
       expect(page).to have_current_path(new_task_path)
+    end
+  end
+
+  context 'External Tasks view:' do
+    before(:each) do
+      visit tasks_path(external: true)
+    end
+
+    scenario 'task with no group should exist' do
+      expect(page).to have_content(@task_no_group[:name])
+    end
+
+    scenario 'task with group should not exist' do
+      expect(page).to_not have_content(@task_with_group[:name])
     end
   end
 end
