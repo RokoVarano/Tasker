@@ -21,4 +21,14 @@ RSpec.describe Group, type: :model do
       expect(@user.groups.create(name: 'GroupExample', image: nil)).to_not be_valid
     end
   end
+
+  context 'associations' do
+    it 'should belong to User' do 
+      expect(Group.reflect_on_association(:user).macro).to  eq(:belongs_to) 
+    end
+
+    it 'should have many group_tasks' do 
+      expect(Group.reflect_on_association(:group_tasks).macro).to  eq(:has_many) 
+    end
+  end
 end

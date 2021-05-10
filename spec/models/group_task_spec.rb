@@ -26,4 +26,14 @@ RSpec.describe GroupTask, type: :model do
     @group.group_tasks.create(task_id: @task[:id]).save!
     expect(@task.group_tasks.create(group_id: @group[:id])).to_not be_valid
   end
+
+  context 'associations' do
+    it 'should belong to Group' do 
+      expect(GroupTask.reflect_on_association(:group).macro).to  eq(:belongs_to) 
+    end
+
+    it 'should belong to Task' do 
+      expect(GroupTask.reflect_on_association(:task).macro).to  eq(:belongs_to) 
+    end
+  end
 end
