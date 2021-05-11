@@ -37,15 +37,16 @@ RSpec.feature 'Users', type: :feature do
   context 'Login user:' do
     before(:each) do
       visit root_path
-      User.new(name: 'Login').save
+      @user = User.new(name: 'Login')
+      @user.save
     end
 
     scenario 'should succeed' do
       within '#login_user' do
-        fill_in 'user_name', with: 'Login'
+        fill_in 'user_name', with: @user[:name]
       end
       click_button 'Login'
-      expect(page).to have_content('Logged in!')
+      expect(page).to have_content(@user[:name])
     end
 
     scenario 'non existant should fail' do
@@ -76,18 +77,6 @@ RSpec.feature 'Users', type: :feature do
       click_button 'Login'
     end
 
-    scenario 'title should be Profile' do
-      within '.navbar' do
-        expect(page).to have_content('Profile')
-      end
-    end
-
-    scenario 'user widget should contain profile name' do
-      within '#user_widget_name' do
-        expect(page).to have_content(@user[:name])
-      end
-    end
-
     scenario 'link to My Tasks' do
       click_link 'My Tasks'
       expect(page).to have_current_path('/tasks?external=false')
@@ -98,9 +87,19 @@ RSpec.feature 'Users', type: :feature do
       expect(page).to have_current_path('/tasks?external=true')
     end
 
-    scenario 'link to All Groups' do
-      click_link 'All Groups'
+    scenario 'link to Groups' do
+      click_link 'Groups'
       expect(page).to have_current_path(groups_path)
+    end
+
+    scenario 'link to Update' do
+      click_link 'Update Profile'
+      expect(page).to have_current_path(edit_user_path(@user))
+    end
+
+    scenario 'link to Log Out' do
+      click_link 'Log Out'
+      expect(page).to have_current_path(root_path)
     end
   end
 end

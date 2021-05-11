@@ -6,7 +6,7 @@ module UsersHelper
     if number == 0
       html_string << '<i class="fas fa-clipboard-list"></i>'
       html_string << '</div>'
-      html_string << '<h3 class="text-title">My tasks</h3>' 
+      html_string << '<h3 class="text-title">My Tasks</h3>' 
     end
 
     if number == 1
@@ -30,7 +30,7 @@ module UsersHelper
     if number == 4
       html_string << '<i class="fas fa-power-off"></i>'
       html_string << '</div>'
-      html_string << '<h3 class="text-title" style="border:none">Log out</h3>' 
+      html_string << '<h3 class="text-title" style="border:none">Log Out</h3>' 
     end
 
     html_string.html_safe

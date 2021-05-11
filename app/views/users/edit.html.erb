@@ -1,12 +1,15 @@
-<div class='item-container'>
-  <%= avatar(@user)%>
-  <h3 id='user_widget_name'><%= @user[:name] %></h3>
-  <div></div>
-</div>
+<div class='info-container'>
 
-<div class='item-container'>
-  <%= simple_form_for @user, method: :put do |f| %>
-    <%= f.input :image %>
-    <%= f.button :submit, 'Change picture', class: 'profile-btn' %>
-  <% end %>
+  <div class='item-container'>
+    <%= avatar(@user)%>
+    <h3 id='user_widget_name'><%= @user[:name] %></h3>
+    <div></div>
+  </div>
+
+  <div class='item-container'>
+    <%= simple_form_for @user, method: :put do |f| %>
+      <%= f.input :image %>
+      <%= f.button :submit, 'Change picture', class: 'profile-btn' %>
+    <% end %>
+  </div>
 </div>
