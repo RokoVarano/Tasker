@@ -11,6 +11,12 @@ RSpec.describe User, type: :model do
     User.new(name: 'Name').save
     expect(User.new(name: 'Name')).to_not be_valid
   end
+  it 'is not valid with a name shorter than 3 characters' do
+    expect(User.new(name: 'as')).to_not be_valid
+  end
+  it 'is not valid with a name longer than 10 characters' do
+    expect(User.new(name: 'abcdefghijk')).to_not be_valid
+  end
 
   context 'associations' do
     it 'should belong to User' do 

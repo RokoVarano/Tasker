@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe GroupTask, type: :model do
   before :each do
-    @user = User.new(name: 'GroupTaskUser')
+    @user = User.new(name: 'GTUser')
     @user.save
 
     file = fixture_file_upload('avatar.png', 'image/png')
