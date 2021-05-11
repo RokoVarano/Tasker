@@ -1,4 +1,4 @@
-  <% @tasks.each do |task| %>
+  <% @tasks.order(:created_at).each do |task| %>
     <div class='item-container'>
       <%= task_link(task)%>
     </div>
