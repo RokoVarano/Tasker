@@ -7,7 +7,7 @@ class Task < ApplicationRecord
     if external == 'true'
       return Task.where(user_id: user_id).select { |task| task.groups.empty? }
     else
-      return Task.where(user_id: user_id)
+      return Task.where(user_id: user_id).select { |task| !task.groups.empty? }
     end
   end
 end

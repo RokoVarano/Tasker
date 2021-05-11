@@ -28,7 +28,7 @@ RSpec.feature 'Tasks', type: :feature do
     click_button 'Login'
   end
 
-  context 'All Tasks view:' do
+  context 'Group Tasks view:' do
     before(:each) do
       visit tasks_path(external: false)
     end
@@ -42,20 +42,16 @@ RSpec.feature 'Tasks', type: :feature do
     scenario 'total tasks should show the number of current tasks' do
       within(:css, '.task-count') do
         expect(page).to have_content('Total Tasks')
-        expect(page).to have_content(Task.where(user_id: @user[:id]).length.to_s)
+        expect(page).to have_content((Task.where(user_id: @user[:id]).select { |task| !task.groups.empty? }).length.to_s)
       end
     end
 
-    scenario 'task with no group should exist' do
-      expect(page).to have_content(@task_with_group[:name])
-      expect(page).to have_content("Points: #{@task_no_group[:points]}")
-      expect(page).to have_content((@task_no_group[:created_at]).strftime('%d of %B, %Y'))
+    scenario 'task with no group should not exist' do
+      expect(page).to_not have_content(@task_no_group[:name])
     end
 
     scenario 'task with group should exist' do
       expect(page).to have_content(@task_with_group[:name])
-      expect(page).to have_content("Points: #{@task_with_group[:points]}")
-      expect(page).to have_content((@task_with_group[:created_at]).strftime('%d of %B, %Y'))
     end
 
     scenario 'new task button' do
@@ -67,6 +63,13 @@ RSpec.feature 'Tasks', type: :feature do
   context 'External Tasks view:' do
     before(:each) do
       visit tasks_path(external: true)
+    end
+
+    scenario 'total tasks should show the number of current tasks' do
+      within(:css, '.task-count') do
+        expect(page).to have_content('Total Tasks')
+        expect(page).to have_content((Task.where(user_id: @user[:id]).select { |task| task.groups.empty? }).length.to_s)
+      end
     end
 
     scenario 'task with no group should exist' do
