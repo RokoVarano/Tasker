@@ -1,13 +1,6 @@
 class TasksController < ApplicationController
   def index
-    external = params[:external]
-
-    @tasks = if external == 'true'
-               Task.where(user_id: current_user).select { |task| task.groups.empty? }
-             else
-               Task.where(user_id: current_user)
-             end
-
+    @tasks = Task.external(params[:external], current_user[:id])
     @title = 'Tasks'
     @tasks
   end
@@ -25,7 +18,6 @@ class TasksController < ApplicationController
     if @task.save!
 
       unless params[:group].empty?
-        puts "EL UNLESS DEL GROUPTASK: #{params[:group][:group_id]}"
         @grouptask = @task.group_tasks.create(:group_id => params[:group][:group_id])
         @grouptask.save
       end
