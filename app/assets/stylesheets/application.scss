@@ -36,14 +36,19 @@ a {
   }
 }
 
+.new-user-form {
+  padding: 3vh;
+}
+
 .login {
   background: $main;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
   height: 100vh;
   color: white;
+  padding: 2vh;
 
   .log-lnk {
     display: flex;
@@ -55,6 +60,39 @@ a {
     color: $main;
     font-size: 4vh;
     font-weight: bolder;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+  }
+
+  .links-profile {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 100%;
+    padding: 5vh 0;
+
+    .link-profile-icon {
+      display: flex;
+      border: 1px white solid;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      justify-content: center;
+      align-items: center;
+      margin: 2vh 2vh 2vh 0;
+    }
+
+    .text-title {
+      border-bottom: white solid 1px;
+      margin: 0;
+      width: 80%;
+      display: flex;
+      align-items: center;
+    }
   }
 }
 
@@ -124,11 +162,16 @@ a {
 
 .avatar {
   display: block;
-  min-width: 80px;
-  max-width: 80px;
+  width: 80px;
   height: 80px;
   object-fit: cover;
   margin-right: 2vh;
+}
+
+.user-avatar {
+  margin: 2vh;
+  height: 100px;
+  width: 100px;
 }
 
 .task-data {

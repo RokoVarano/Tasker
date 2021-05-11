@@ -1,5 +1,7 @@
 module ApplicationHelper
   def navbar_display
+    return if current_page?(current_user)
+
     render partial: 'layouts/nav' unless current_user.nil?
   end
 
@@ -37,5 +39,11 @@ module ApplicationHelper
     return image_tag('peon.jpg', class: 'avatar') if item.nil? || !item.image.attached?
 
     image_tag(url_for(item.image), class: 'avatar')
+  end
+
+  def user_avatar(item)
+    return image_tag('peon.jpg', class: 'avatar user-avatar', style: 'border-radius: 50%') if item.nil? || !item.image.attached?
+
+    image_tag(url_for(item.image), class: 'avatar user-avatar', style: 'border-radius: 50%')
   end
 end

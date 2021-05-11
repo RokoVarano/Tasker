@@ -1,11 +1,13 @@
-<div class="item-container">
-  <%= simple_form_for @task do |f|%>
-    <%= f.input :name %>
-    <%= f.input :points %>
-    <%= simple_fields_for :group do |n| %>
-      <%= n.input :group_id, collection: Group.all, label_method: :name, value_method: :id, include_blank: true %>
+<div class='info-container'>
+  <div class="item-container">
+    <%= simple_form_for @task do |f|%>
+      <%= f.input :name %>
+      <%= f.input :points %>
+      <%= simple_fields_for :group do |n| %>
+        <%= n.input :group_id, collection: Group.all, label_method: :name, value_method: :id, include_blank: true %>
+      <% end %>
+    
+      <%= f.submit 'Create Task', :input_html =>{:class => "profile-btn"} %>
     <% end %>
-  
-    <%= f.submit 'Create Task', :input_html =>{:class => "profile-btn"} %>
-  <% end %>
   </div>
+</div>

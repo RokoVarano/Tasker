@@ -7,7 +7,7 @@
     <% end %>
   </div>
 
-  <%= form_for @user, :url => { :action => :create_session }, :html => { :id => "login_user" } do |f| %>
+  <%= form_for @user, :url => { :action => :create_session }, :html => { :id => "login_user", :class => 'new-user-form' } do |f| %>
     <p class='log-lnk'><%= f.submit 'Login', class: 'btn btn-log'%></p>
     <p>
       <%= f.label :name %><br />
@@ -15,7 +15,7 @@
     </p>
   <% end %>
 
-  <%= form_for @user, :html => { :id => "create_user" } do |f| %>
+  <%= form_for @user, :html => { :id => "create_user", :class => 'new-user-form' } do |f| %>
 
     <p class='log-lnk'><%= f.submit 'Sign up', class: 'btn btn-log' %></p>
     <p>

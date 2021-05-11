@@ -1,16 +1,14 @@
-<div class='item-container' style='border: 2px solid blue; border-radius: 20px;'>
-  <%= avatar(@user) %>
-  <p id='user_widget_name'><%= @user[:name] %></p>
-  <div></div>
-</div>
+<div class="login">
 
-<div class='item-container'>
-<%= simple_form_for @user, method: :put do |f| %>
-  <%= f.input :image %>
-  <%= f.button :submit, 'Change picture', class: 'profile-btn' %>
-<% end %>
-</div>
+  <%= user_avatar(@user)%>
+  <h3 id='user_widget_name'><%= @user[:name] %></h3>
 
-<div class='item-container'><%= link_to "My Tasks", {:controller => "tasks", :action => "index", :external => false }%></div>
-<div class='item-container'><%= link_to "External Tasks", {:controller => "tasks", :action => "index", :external => true }%></div>
-<div class='item-container'><%= link_to "All Groups", groups_path%></div>
+
+  <div class='links-profile'>
+    <%= link_to user_link(0), {:controller => "tasks", :action => "index", :external => false }%>
+    <%= link_to user_link(1), {:controller => "tasks", :action => "index", :external => true }%>
+    <%= link_to user_link(2), groups_path%>
+    <%= link_to user_link(3), edit_user_path(current_user) %>
+    <%= link_to user_link(4), log_out_path, method: :post %>
+  </div>
+</div>

@@ -51,6 +51,10 @@ class UsersController < ApplicationController
     @title = 'Profile'
   end
 
+  def edit
+    @user = current_user
+  end
+
   def update
     user_params = params.require(:user).permit(:image)
 

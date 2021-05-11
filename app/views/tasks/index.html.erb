@@ -1,7 +1,8 @@
-  <% @tasks.order(:created_at).each do |task| %>
+<div class='info-container'>
+  <% (@tasks.sort_by { |k| k["created_at"] }).reverse.each do |task| %>
     <div class='item-container'>
       <%= task_link(task)%>
     </div>
   <% end %>
-
+</div>
   <div style='min-height: 80px;'> </div>
