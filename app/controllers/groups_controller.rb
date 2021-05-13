@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   def index
-    @groups = Group.all.order(:name)
+    @groups = Group.includes(image_attachment: :blob).all.order(:name)
     @title = 'Groups'
   end
 

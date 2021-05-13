@@ -5,9 +5,9 @@ class Task < ApplicationRecord
 
   def self.external(external, user_id)
     if external == 'true'
-      return Task.where(user_id: user_id).select { |task| task.groups.empty? }
+      return Task.includes(:groups).where(user_id: user_id).select { |task| task.groups.empty? }
     else
-      return Task.where(user_id: user_id).select { |task| !task.groups.empty? }
+      return Task.includes(:groups).where(user_id: user_id).select { |task| !task.groups.empty? }
     end
   end
 end
