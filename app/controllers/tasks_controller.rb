@@ -18,7 +18,7 @@ class TasksController < ApplicationController
     if @task.save!
 
       unless params[:group].empty?
-        @grouptask = @task.group_tasks.create(:group_id => params[:group][:group_id])
+        @grouptask = @task.group_tasks.create(group_id: params[:group][:group_id])
         @grouptask.save
       end
 

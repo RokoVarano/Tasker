@@ -42,7 +42,9 @@ RSpec.feature 'Tasks', type: :feature do
     scenario 'total tasks should show the number of current tasks' do
       within(:css, '.task-count') do
         expect(page).to have_content('Total Tasks')
-        expect(page).to have_content((Task.where(user_id: @user[:id]).select { |task| !task.groups.empty? }).length.to_s)
+        expect(page).to have_content((Task.where(user_id: @user[:id]).reject do |task|
+                                        task.groups.empty?
+                                      end).length.to_s)
       end
     end
 

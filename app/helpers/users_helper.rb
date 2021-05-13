@@ -3,40 +3,39 @@ module UsersHelper
     html_string = ''
     html_string << "<div class='link-profile-icon'>"
 
-    if number == 0
+    if number.zero?
       html_string << '<i class="fas fa-clipboard-list"></i>'
       html_string << '</div>'
-      html_string << '<h3 class="text-title">My Tasks</h3>' 
+      html_string << '<h3 class="text-title">My Tasks</h3>'
     end
 
     if number == 1
       html_string << '<i class="fas fa-paste"></i>'
       html_string << '</div>'
-      html_string << '<h3 class="text-title">External Tasks</h3>' 
+      html_string << '<h3 class="text-title">External Tasks</h3>'
     end
 
     if number == 2
       html_string << '<i class="fas fa-layer-group"></i>'
       html_string << '</div>'
-      html_string << '<h3 class="text-title">Groups</h3>' 
+      html_string << '<h3 class="text-title">Groups</h3>'
     end
 
     if number == 3
       html_string << '<i class="fas fa-layer-group"></i>'
       html_string << '</div>'
-      html_string << '<h3 class="text-title">Update Profile</h3>' 
+      html_string << '<h3 class="text-title">Update Profile</h3>'
     end
 
     if number == 4
       html_string << '<i class="fas fa-power-off"></i>'
       html_string << '</div>'
-      html_string << '<h3 class="text-title" style="border:none">Log Out</h3>' 
+      html_string << '<h3 class="text-title" style="border:none">Log Out</h3>'
     end
 
     html_string.html_safe
   end
 end
-
 
 def task_link(task)
   html_string = ''

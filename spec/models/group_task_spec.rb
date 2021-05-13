@@ -28,12 +28,12 @@ RSpec.describe GroupTask, type: :model do
   end
 
   context 'associations' do
-    it 'should belong to Group' do 
-      expect(GroupTask.reflect_on_association(:group).macro).to  eq(:belongs_to) 
+    it 'should belong to Group' do
+      expect(GroupTask.reflect_on_association(:group).macro).to eq(:belongs_to)
     end
 
-    it 'should belong to Task' do 
-      expect(GroupTask.reflect_on_association(:task).macro).to  eq(:belongs_to) 
+    it 'should belong to Task' do
+      expect(GroupTask.reflect_on_association(:task).macro).to eq(:belongs_to)
     end
   end
 end
