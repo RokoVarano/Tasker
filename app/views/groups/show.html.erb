@@ -1,4 +1,15 @@
 <div class='info-container'>
+
+<div class="item-container">
+    <h5>Top 3 Taskers!</h5>
+    <div class="item-container">
+    <% @group.group_points.each do |hash|%>
+      <%= display_points(hash)%>
+    <% end %>
+    </div>
+</div>
+
+
 <div class="item-container">
 <%= simple_form_for @group do |f|%>
 

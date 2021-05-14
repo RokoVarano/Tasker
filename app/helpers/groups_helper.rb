@@ -13,4 +13,14 @@ module GroupsHelper
 
     html_string.html_safe
   end
+
+  def display_points(hash)
+    html_string = ''
+    html_string << "<div class='point-display'>"
+    html_string << "<p>#{hash[0].name}</p>"
+    html_string << "<p>#{hash[1]}</p>"
+    html_string << '</div>'
+
+    html_string.html_safe
+  end
 end

@@ -36,19 +36,16 @@ module ApplicationHelper
   end
 
   def avatar(item)
-    if item.nil? || Group.includes(image_attachment: :blob).find(item[:id]).nil?
-      return image_tag('peon.jpg',
-                       class: 'avatar')
-    end
+    puts "ITEM: #{item}"
+    return image_tag('peon.jpg',
+                     class: 'avatar') if item.nil? || Group.includes(image_attachment: :blob).find(item[:id]).nil?
 
     image_tag(url_for(Group.includes(image_attachment: :blob).find(item[:id]).image), class: 'avatar')
   end
 
   def user_avatar(item)
-    if item.nil? || !item.image.attached?
-      return image_tag('peon.jpg', class: 'avatar user-avatar',
-                                   style: 'border-radius: 50%')
-    end
+    return image_tag('peon.jpg', class: 'avatar user-avatar',
+                                 style: 'border-radius: 50%') if item.nil? || !item.image.attached?
 
     image_tag(url_for(item.image), class: 'avatar user-avatar', style: 'border-radius: 50%')
   end
