@@ -1,0 +1,10 @@
+<div class='info-container'>
+<div class="item-container">
+  <%= simple_form_for @group do |f| %>
+    <%= f.input :name %>
+    <%= f.file_field :image %>
+    <hr/>
+    <%= f.button :submit, class: 'profile-btn' %>
+  <% end %>
+</div>
+</div>

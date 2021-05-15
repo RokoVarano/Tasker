@@ -1,0 +1,27 @@
+<div class="login">
+
+  <div>
+    <h1>Tasker!</h1>
+    <% flash.each do |type, msg| %>
+      <p><%= msg %></p>
+    <% end %>
+  </div>
+
+  <%= form_for @user, :url => { :action => :create_session }, :html => { :id => "login_user", :class => 'new-user-form' } do |f| %>
+    <p class='log-lnk'><%= f.submit 'Login', class: 'btn btn-log'%></p>
+    <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </p>
+  <% end %>
+
+  <%= form_for @user, :html => { :id => "create_user", :class => 'new-user-form' } do |f| %>
+
+    <p class='log-lnk'><%= f.submit 'Sign up', class: 'btn btn-log' %></p>
+    <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </p>
+
+  <% end %>
+</div>
