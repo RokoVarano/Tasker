@@ -32,7 +32,9 @@ class UsersController < ApplicationController
     user_params = params.require(:user).permit(:name)
     @user = User.find_by(user_params)
     if !@user.nil?
+      puts "USER: #{@user[:id]}"
       session[:user_id] = @user[:id]
+      puts "SESSION: #{session[:user_id]}"
       flash[:notice] = 'Logged in!'
       redirect_to @user
     else

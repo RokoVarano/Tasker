@@ -1,2 +1,0 @@
-class GroupTasksController < ApplicationController
-end
