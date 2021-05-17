@@ -4,7 +4,7 @@
 
 > Tasker is an alternative take on the 'Group our transactions' project. Instead of targeting economic transactions, it is aimed at informal task management, such as roommates in an appartment. 
 
-![screenshot](./app_screenshot.png)
+![screenshot](main.png)
 
 Users can create Groups. In the groups, tasks can be added, which will indicate how much participation any given user has in the group. One task can be repeated in many groups as well (for example, a person who cooks in two appartments). 
 
@@ -30,7 +30,7 @@ Users can create Groups. In the groups, tasks can be added, which will indicate 
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://desolate-retreat-49950.herokuapp.com/)
 
 
 ## Getting Started
@@ -75,4 +75,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](./MIT.md) licensed.
+This project is [MIT](LICENSE) licensed.
