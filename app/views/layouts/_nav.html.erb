@@ -1,0 +1,13 @@
+<div class='navbar'>
+  <%= link_to raw('<i class="fas fa-home"></i>'), new_user_path %>
+  <div class='title' >
+    <p><%= navbar_title %></p>
+    <% flash.each do |type, msg| %>
+      <%= msg %>
+    <% end %>
+  </div>
+
+  <%= link_to raw('<i class="fas fa-power-off"></i>'), log_out_path, method: :post %>
+</div>
+
+<%= task_count(@tasks) %>

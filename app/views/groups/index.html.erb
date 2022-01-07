@@ -1,0 +1,8 @@
+<div class='info-container'>
+
+  <% (@groups.sort_by { |k| k["name"].downcase }).each do |group| %>
+      <%= group_link(group)%> 
+  <% end %>
+</div>
+
+<div style='min-height: 80px;'> </div>

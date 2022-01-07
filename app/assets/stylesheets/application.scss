@@ -1,0 +1,240 @@
+@import 'bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+// colors
+$main: #3778c2;
+$link: rgb(64, 215, 235);
+$second: #5fb523;
+$text-color: #433b54;
+$text-light: #989da3;
+$p-color: #433b5488;
+$backgray: #f5f6f8;
+$transparent: rgba(0, 0, 0, 0);
+$font: 'Open Sans', sans-serif;
+
+p {
+  margin: 0;
+}
+
+body {
+  background-color: $transparent;
+}
+
+:root {
+  font-family: $font;
+  background-color: $backgray;
+  color: $text-color;
+}
+
+a {
+  color: $text-color;
+
+  :hover {
+    color: $text-color;
+    text-decoration: none;
+  }
+}
+
+.new-user-form {
+  padding: 3vh;
+}
+
+.login {
+  background: $main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  color: white;
+  padding: 2vh;
+
+  .log-lnk {
+    display: flex;
+    justify-content: center;
+  }
+
+  .btn-log {
+    background-color: white;
+    color: $main;
+    font-size: 4vh;
+    font-weight: bolder;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+  }
+
+  .links-profile {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 100%;
+    padding: 5vh 0;
+
+    .link-profile-icon {
+      display: flex;
+      border: 1px white solid;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      justify-content: center;
+      align-items: center;
+      margin: 2vh 2vh 2vh 0;
+    }
+
+    .text-title {
+      border-bottom: white solid 1px;
+      margin: 0;
+      width: 80%;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+  background-color: $main;
+  color: white;
+
+  .title {
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-align: center;
+  }
+
+  a {
+    color: white;
+
+    :hover {
+      text-decoration: none;
+      color: $link;
+    }
+  }
+}
+
+.foot {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: $second;
+  color: white;
+  text-align: center;
+  min-height: 80px;
+
+  .foot-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 96vw;
+    min-height: 70px;
+    background-color: $second;
+    margin: 1vh;
+    color: white;
+    font-weight: bolder;
+    border: 1px solid white;
+    font-size: 30px;
+  }
+}
+
+.info-container {
+  margin: 2vh;
+}
+
+.item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vh;
+  margin-bottom: 1vh;
+  background-color: white;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.avatar {
+  display: block;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 2vh;
+}
+
+.user-avatar {
+  margin: 2vh;
+  height: 100px;
+  width: 100px;
+}
+
+.point-display {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background: $backgray;
+  margin: 1vh;
+}
+
+.task-data {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 80px;
+  justify-content: space-between;
+  color: $text-light;
+
+  .name-points {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $text-light;
+
+    .name {
+      display: flex;
+      align-items: center;
+      height: 60px;
+    }
+
+    .points {
+      display: flex;
+      align-items: center;
+      height: auto;
+      color: $text-color;
+      font-weight: bolder;
+    }
+  }
+
+  .task-date {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+  }
+}
+
+.task-count {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 5vh;
+  padding: 8px 16px;
+  background: white;
+}
+
+.profile-btn {
+  display: inline-block;
+  background: $main;
+  color: white;
+  margin-bottom: 1vh;
+}
+
+.new-btn {
+  display: inline-block;
+  background: $main;
+  color: white;
+  margin-bottom: 1vh;
+}

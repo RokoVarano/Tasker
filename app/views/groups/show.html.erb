@@ -1,0 +1,29 @@
+<div class='info-container'>
+
+<div class="item-container">
+    <h5>Top 3 Taskers!</h5>
+    <div class="item-container">
+    <% @group.group_points.each do |hash|%>
+      <%= display_points(hash)%>
+    <% end %>
+    </div>
+</div>
+
+
+<div class="item-container">
+<%= simple_form_for @group do |f|%>
+
+  <%= simple_fields_for :task do |n| %>
+    <%= n.input :task_id, collection: Task.all, label_method: :name, value_method: :id, include_blank: false %>
+  <% end %>
+
+  <%= f.submit 'Add a Task', :input_html =>{:class => "profile-btn"} %>
+<% end %>
+</div>
+
+<% @group.tasks.each do |task| %>
+  <div class='item-container'>
+    <%= task_in_group(task)%>
+  </div>
+<% end %>
+</div>
